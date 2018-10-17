@@ -25,6 +25,7 @@ def breadth_first_search(tree, start, goal):
 	
 	return None
 
+
 def main():
 	t_dict = {
 		'A': [c for c in 'BCD'],
