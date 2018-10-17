@@ -37,10 +37,12 @@ class Node:
 
 
 class Puzzle8Node(Node):
-	def __init__(self, start_state):
+	def __init__(self, start_state, depth=0):
 		# Board consists of 8 numbers and a blank space
 		assert "".join(sorted(start_state)) == " 12345678"
 		self.state = start_state
+		self.depth = depth
+		self.score = 0
 
 	def make_board(self, name):
 		board = [["_" for col in range(3)] for row in range(3)]
@@ -105,7 +107,7 @@ class Puzzle8Node(Node):
 			moves.append(self.get_state(board))
 			board[blank.row][blank.col-1], board[blank.row][blank.col] = board[blank.row][blank.col], board[blank.row][blank.col-1]
 
-		return [Puzzle8Node(move) for move in moves]
+		return [Puzzle8Node(move, self.depth+1) for move in moves]
 
 	def test(self):
 		p = Puzzle8Node('2831647 5') # Lugar fig 3.17
