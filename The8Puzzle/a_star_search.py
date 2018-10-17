@@ -14,7 +14,6 @@ def a_star_search(start, goal):
 		else:
 			visited.add(next)
 			children = next.get_children()
-			children_scores = []
 			for child in children:
 				if child not in visited and child not in openlist:
 					child.score = md.manhattan_distance(child.state, goal.state) + child.depth
