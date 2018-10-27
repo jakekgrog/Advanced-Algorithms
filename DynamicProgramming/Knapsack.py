@@ -14,6 +14,7 @@ def knapsack(capacity, items, memo):
 
 def main():
     # A single item is a value, weight tuple
+    # This version assumes there is an infinite amount of these items
     items = [(20, 1), (300, 2)]
     capacity = 401
     memo = {}
